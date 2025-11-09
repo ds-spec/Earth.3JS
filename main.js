@@ -14,6 +14,7 @@ camera.position.z = 5;
 
 let textureLoader = new THREE.TextureLoader();
 let texture = textureLoader.load("./maps.jpg");
+let texture2 = textureLoader.load("./clouds.jpg");
 
 let hdri = new RGBELoader();
 hdri.load(
@@ -27,8 +28,13 @@ hdri.load(
 const geometry = new THREE.SphereGeometry(2, 250, 250);
 const material = new THREE.MeshPhysicalMaterial({ map: texture });
 const mesh = new THREE.Mesh(geometry, material);
-
 scene.add(mesh);
+
+const geometry2 = new THREE.SphereGeometry(2.03, 250, 250);
+const material2 = new THREE.MeshPhysicalMaterial({ alphaMap: texture2 });
+material2.transparent = true;
+const mesh2 = new THREE.Mesh(geometry2, material2);
+scene.add(mesh2);
 
 const canvas = document.querySelector("canvas");
 let renderer = new THREE.WebGLRenderer({ canvas });
