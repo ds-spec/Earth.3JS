@@ -30,7 +30,7 @@ const material = new THREE.MeshPhysicalMaterial({ map: texture });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
-const geometry2 = new THREE.SphereGeometry(2.03, 250, 250);
+const geometry2 = new THREE.SphereGeometry(2.01, 250, 250);
 const material2 = new THREE.MeshPhysicalMaterial({ alphaMap: texture2 });
 material2.transparent = true;
 const mesh2 = new THREE.Mesh(geometry2, material2);
@@ -44,7 +44,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 
 function animate() {
   window.requestAnimationFrame(animate);
+  mesh.rotation.y += 0.0003;
+  mesh2.rotation.y += 0.0004;
   renderer.render(scene, camera);
+
   controls.update();
 }
 animate();
