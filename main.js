@@ -14,7 +14,9 @@ camera.position.z = 5;
 
 let textureLoader = new THREE.TextureLoader();
 let texture = textureLoader.load("./maps.jpg");
+texture.colorSpace = THREE.SRGBColorSpace;
 let texture2 = textureLoader.load("./clouds.jpg");
+texture2.colorSpace = THREE.SRGBColorSpace;
 
 let hdri = new RGBELoader();
 hdri.load(
